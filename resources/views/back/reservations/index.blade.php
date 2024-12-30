@@ -46,7 +46,7 @@
                                             <td>{{ $reservation->check_in }}</td>
                                             <td>{{ $reservation->check_out }}</td>
                                             <td>{{ $reservation->number_of_guests }}</td>
-                                            <td>${{ $reservation->total_price }}</td>
+                                            <td>₹{{ $reservation->total_price }}</td>
                                             <td>
                                                 <form action="{{ route('reservation.updateStatus', $reservation->id) }}"
                                                     method="POST" id="status-form-{{ $reservation->id }}">

@@ -23,7 +23,7 @@
                         <div class="col-xxl-6 col-md-12">
                             <div class="card info-card sales-card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Booking<span>| Today</span></h5>
+                                    <h5 class="card-title">Total Bookings</h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -31,7 +31,7 @@
                                             <i class="bi bi-cart"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>145</h6>
+                                            <h6>{{$reservationscount}}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
 
                             <div class="card info-card customers-card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Customers</h5>
+                                    <h5 class="card-title">Total Customers</h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -52,7 +52,7 @@
                                             <i class="bi bi-people"></i>
                                         </div>
                                         <div class="ps-3">
-                                            <h6>1244</h6>
+                                            <h6>{{$totalusers}}</h6>
                                         </div>
                                     </div>
 
@@ -82,57 +82,69 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Recent Booking <span>| Today</span></h5>
 
                                     <table class="table table-borderless datatable">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Customer</th>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Status</th>
+                                                <th>#</th>
+                                                <th>Room Type</th>
+                                                <th>Room Number</th>
+                                                <th>User</th>
+                                                <th>Phone Number</th>
+                                                <th>Check-in</th>
+                                                <th>Check-out</th>
+                                                <th>Guests</th>
+                                                <th>Total Price</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2457</a></th>
-                                                <td>Brandon Jacob</td>
-                                                <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                                <td>$64</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2147</a></th>
-                                                <td>Bridie Kessler</td>
-                                                <td><a href="#" class="text-primary">Blanditiis dolor omnis
-                                                        similique</a></td>
-                                                <td>$47</td>
-                                                <td><span class="badge bg-warning">Pending</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2049</a></th>
-                                                <td>Ashleigh Langosh</td>
-                                                <td><a href="#" class="text-primary">At recusandae consectetur</a>
-                                                </td>
-                                                <td>$147</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2644</a></th>
-                                                <td>Angus Grady</td>
-                                                <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                                                <td>$67</td>
-                                                <td><span class="badge bg-danger">Rejected</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"><a href="#">#2644</a></th>
-                                                <td>Raheem Lehner</td>
-                                                <td><a href="#" class="text-primary">Sunt similique distinctio</a>
-                                                </td>
-                                                <td>$165</td>
-                                                <td><span class="badge bg-success">Approved</span></td>
-                                            </tr>
+                                            @foreach ($reservations as $reservation)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $reservation->room_type->name }}</td>
+                                                    <td>{{ $reservation->room->room_number }}</td>
+                                                    <td>{{ $reservation->user->name }}</td>
+                                                    <td>{{ $reservation->user->phone }}</td>
+                                                    <td>{{ $reservation->check_in }}</td>
+                                                    <td>{{ $reservation->check_out }}</td>
+                                                    <td>{{ $reservation->number_of_guests }}</td>
+                                                    <td>₹{{ $reservation->total_price }}</td>
+                                                    <td>
+                                                        <form action="{{ route('reservation.updateStatus', $reservation->id) }}"
+                                                            method="POST" id="status-form-{{ $reservation->id }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <select name="status" class="form-control"
+                                                                onchange="confirmChangeStatus({{ $reservation->id }})"
+                                                                style="background-color:
+                                                                {{ $reservation->status == 'pending' ? '#ffc107' : ($reservation->status == 'approved' ? '#d4edda' : '#f8d7da') }};
+                                                                color:
+                                                                {{ $reservation->status == 'pending' ? '#721c24' : ($reservation->status == 'approved' ? '#155724' : '#721c24') }};">
+                                                                <option value="pending"
+                                                                    {{ $reservation->status == 'pending' ? 'selected' : '' }}
+                                                                    class="bg-warning text-white"
+                                                                    style="{{ $reservation->status == 'pending' ? 'background-color: #f8d7da; color: #721c24;' : '' }}">
+                                                                    Pending
+                                                                </option>
+                                                                <option value="approved"
+                                                                    {{ $reservation->status == 'approved' ? 'selected' : '' }}
+                                                                    class="bg-success text-white"
+                                                                    style="{{ $reservation->status == 'approved' ? 'background-color: #d4edda; color: #155724;' : '' }}">
+                                                                    Approved
+                                                                </option>
+                                                                <option value="canceled"
+                                                                    {{ $reservation->status == 'canceled' ? 'selected' : '' }}
+                                                                    class="bg-danger text-dark"
+                                                                    style="{{ $reservation->status == 'canceled' ? 'background-color: #f8d7da; color: #721c24;' : '' }}">
+                                                                    Canceled
+                                                                </option>
+                                                            </select>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
 

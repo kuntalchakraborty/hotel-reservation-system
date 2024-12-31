@@ -19,6 +19,9 @@
         box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
     .btn-submit {
+        background-color: #e1bd85;
+        border: aliceblue;
+        color: #fff;
         margin-top: 28px;
         font-size: 16px;
         padding: 12px 20px;
@@ -26,8 +29,8 @@
         transition: background-color 0.3s ease;
     }
     .btn-submit:hover {
-        background-color: #0056b3;
-        border-color: #004085;
+        color: var(--cream) !important;
+        background: var(--white);
     }
     @media (max-width: 768px) {
         .room-search-form {
@@ -74,7 +77,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-12 mb-3">
-                <button type="submit" class="btn btn-primary w-100 btn-submit">Search</button>
+                <button type="submit" class="w-100 btn-submit">Search</button>
             </div>
         </div>
     </form>

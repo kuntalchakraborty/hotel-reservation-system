@@ -18,28 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{{ asset('public/assets/css/login.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        .left-section {
-            background: url("{{ asset('public/assets/img/login-side.jpg') }}") no-repeat center center;
-            display: none;
-            background-size: cover;
-            width: 50%;
-        }
-
-        .left-section {
-            background: url("{{ asset('public/assets/img/login-side.jpg') }}") no-repeat center center;
-            display: block;
-            background-size: cover;
-            width: 50%;
-        }
-    </style>
 </head>
 
 <body>
 
     <div class="container">
-        <div class="left-section"></div>
+        <div class="left-section" style="background-image: url('{{ asset('public/assets/img/login-side.jpg') }}') ;"></div>
         <div class="right-section">
             <img src="{{ asset('assets/img/logo.png') }}" alt="" width="300" style="align-items: center">
             <div class="login-container">

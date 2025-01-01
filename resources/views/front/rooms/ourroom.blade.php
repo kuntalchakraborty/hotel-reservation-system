@@ -1,6 +1,10 @@
 @extends('front.layouts.frontlayout')
 @push('stylesheet')
 <style>
+    .roomBookingForm{
+        position: relative;
+        margin-top: 100px;
+    }
     .room-search-form {
         background-color: #f8f9fa;
         padding: 20px;
@@ -62,6 +66,8 @@
         </div>
     </section>
     <!-- ======================================= banner ends ======================================== -->
+    <section class="roomBookingForm">
+        <div class="container">
     <form method="GET" action="{{ route('our-rooms-filter', ['id' => Crypt::encrypt($decryptedId)]) }}" class="room-search-form">
         <div class="row justify-content-center">
             <div class="col-md-4 col-sm-12 mb-3">
@@ -81,6 +87,8 @@
             </div>
         </div>
     </form>
+</div>
+</section>
     <!-- ======================================= room starts ======================================== -->
     <section class="ourRoom">
         <div class="container">

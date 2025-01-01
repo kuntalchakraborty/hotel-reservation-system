@@ -21,7 +21,13 @@
      align-items: stretch;
      position: relative;
  }
-
+ .left-section {
+    display: block;
+    background-size: cover;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
  .logo-login {
     display: flex;
     flex-direction: column;
@@ -276,21 +282,23 @@
  }
 
  @media screen and (max-width: 1024px) {
-     .right-section {
-         width: 100%;
-         gap: 50px;
-         position: absolute;
-         top: 50%;
-         transform: translate(-50%, -50%);
-         background: #fff;
-         max-width: 530px;
-         left: 50%;
-         padding: 40px 0;
-         border-radius: 20px;
-     }
+    .right-section {
+        width: 100%;
+        gap: 50px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        /* background: #fff; */
+        max-width: 530px;
+        right: 0;
+        padding: 40px 0;
+        border-radius: 20px;
+    }
 
 
  }
+
+
 
  .arToaster {
     position: fixed;
@@ -340,3 +348,21 @@
     z-index: 2;
 }
 
+
+@media screen and (max-width: 575px) {
+    .left-section{
+        display: none;
+    }
+    .right-section {
+        width: 100%;
+        position: static;
+        transform: none;
+        /* background: #fff; */
+        max-width: 530px;
+        right: 0;
+        padding: 40px 0;
+        border-radius: 0;
+    }
+
+
+ }

@@ -20,6 +20,7 @@
                                 <h5 class="card-title">Reservations List</h5>
 
                             </div>
+                            <div class="table-responsive">
                             <table class="table datatable">
                                 <thead>
                                     <tr>
@@ -83,6 +84,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -71,19 +71,19 @@
 <!-- ======================================= welcome-sec ends ======================================== -->
 
 <!-- ======================================= room starts ======================================== -->
-<section class="ourRoom">
+<section class="ourRoom homeRoom">
     <div class="container">
         <div class="cmn-title">
             <span>Discover</span>
             <h2>Rooms Types</h2>
         </div>
-        <div class="row">
+        <div class="row ">
             @foreach ($roomTypes as $roomType)
             <div class="col-lg-4">
                 <div class="each_room">
-                    {{-- <div class="room_img">
+                    <div class="room_img">
                         <img src="{{ asset('public/front/images/room-1.jpg') }}" alt="room">
-                    </div> --}}
+                    </div>
                     <div class="room_content">
                         <h3>{{ $roomType->name }}</h3>
                         <p>{{ $roomType->description }}</p>
@@ -292,7 +292,7 @@
                             </div>
                             <h4>Restaurant</h4>
                             <p>Savor exquisite meals at our on-site restaurant, offering a wide variety of cuisines
-                                prepared by expert chefs to delight your taste buds.</p>
+                               </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">

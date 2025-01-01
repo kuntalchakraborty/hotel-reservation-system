@@ -48,7 +48,7 @@ $('.banner-slider').slick({
 });
 
 $('.service-slider').slick({
-  dots: true,
+  dots: false,
   infinite: true,
   autoplay:true,
   pauseOnHover:false,

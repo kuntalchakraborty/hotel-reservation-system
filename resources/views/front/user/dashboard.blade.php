@@ -137,7 +137,8 @@
 
                             </div>
 
-                            <div class="tab-pane fade pt-3" id="profile-settings">
+                            <div class="tab-pane fade pt-3 " id="profile-settings">
+                                <div class="table-responsive">
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
@@ -189,7 +190,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-
+                            </div>
                             </div>
 
                         </div><!-- End Bordered Tabs -->

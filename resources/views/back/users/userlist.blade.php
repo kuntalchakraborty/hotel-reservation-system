@@ -22,6 +22,7 @@
                                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addUserModal">Add
                                     New User</button>
                             </div>
+                            <div class="table-responsive">
                             <table class="table datatable">
                                 <thead>
                                     <tr>
@@ -50,6 +51,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

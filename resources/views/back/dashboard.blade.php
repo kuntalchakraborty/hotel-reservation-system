@@ -83,7 +83,7 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">Recent Booking <span>| Today</span></h5>
-
+                                    <div class="table-responsive">
                                     <table class="table table-borderless datatable">
                                         <thead>
                                             <tr>
@@ -147,7 +147,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
+                                    </div>
                                 </div>
 
                             </div>

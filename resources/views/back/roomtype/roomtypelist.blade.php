@@ -22,6 +22,7 @@
                                     Add Room Type
                                 </button>
                             </div>
+                            <div class="table-responsive">
                             <table class="table datatable">
                                 <thead>
                                     <tr>
@@ -65,6 +66,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -83,6 +83,7 @@
                                 <h5 class="card-title">Rooms List</h5>
                                 <a href="{{ route('rooms.create') }}" class="btn btn-success">Add Room</a>
                             </div>
+                            <div class="table-responsive">
                             <table class="table datatable">
                                 <thead>
                                     <tr>
@@ -128,6 +129,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
